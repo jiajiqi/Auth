@@ -4,6 +4,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom'
 import HomePage from './HomePage/homepage';
+import Login from './pages/Login/login';
+import Admin from './pages/Admin/admin';
 
 class IndexPage extends React.Component{
     render(){
@@ -12,6 +14,9 @@ class IndexPage extends React.Component{
                <BrowserRouter>
                <Switch>
                <Route path="/homepage" exact component={HomePage}></Route>
+               <Route path="/auth/login"   component={Login}></Route>
+               <Route path="/home"   component={HomePage}></Route>
+               <Route path="/"   component={Admin}></Route>
                <Redirect to="/homepage"></Redirect> 
                </Switch>
                </BrowserRouter>
@@ -23,7 +28,5 @@ class IndexPage extends React.Component{
 
 ReactDOM.render(<IndexPage />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+
 serviceWorker.unregister();
